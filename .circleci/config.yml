@@ -18,7 +18,7 @@ jobs:
             #sudo apt install oracle-java8-installer
             mvn -v
             #mvn dependency:go-offline
-      - run: mvn clean install dependency:resolve-plugins dependency:go-offline
+      - run: mvn clean install dependency:resolve dependency:resolve-plugins dependency:go-offline -Pintegration-lite-first
       - run: mvn -B install -Pdefault-first,default-second -Dgib.enabled=true      
       - save_cache:
           key: cache
