@@ -16,7 +16,7 @@ jobs:
           command: |
             #sudo apt update
             #sudo apt install oracle-java8-installer
-            mvn version
+            mvn -v
       - run: mvn -q install -Pdefault-first,default-second -Dgib.enabled=true
       - save_cache:
           key: cache
