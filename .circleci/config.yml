@@ -19,7 +19,7 @@ jobs:
             mvn -v
             #mvn dependency:go-offline
 #       - run: mvn -B -X -f pom.xml install -Pdefault-first,default-second -Dgib.enabled=true
-      - run: mvn clean install dependency:resolve-plugins dependency:go-offline -Pdefault-first,default-second
+      - run: mvn -B clean install dependency:resolve-plugins dependency:go-offline
       - save_cache:
           key: cache
           paths:
