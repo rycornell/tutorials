@@ -9,8 +9,8 @@ jobs:
       MAVEN_OPTS: "-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit"
     steps:
       - checkout
-      - restore_cache:
-          key: cache
+#       - restore_cache:
+#           key: cache
       - run:
           name: APT Update
           command: |
