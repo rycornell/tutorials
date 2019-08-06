@@ -7,6 +7,7 @@ jobs:
       - image: circleci/openjdk:8-jdk
     environment:
       MAVEN_OPTS: "-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit"
+      _JAVA_OPTIONS: "-Xmx3g -XX:MaxPermSize=256m"
     steps:
       - checkout
 #       - restore_cache:
