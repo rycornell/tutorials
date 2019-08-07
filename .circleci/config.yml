@@ -7,12 +7,12 @@ jobs:
 #       image: ubuntu-1604:201903-01
     resource_class: large
     docker:
-      - image: circleci/openjdk:8
+      - image: circleci/openjdk:8-jdk-stretch
     environment:
       #MAVEN_OPTS: "-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit"
       #_JAVA_OPTIONS: "-Xmx3g -XX:MaxPermSize=256m"
     steps:
-      - mvn install
+      - run: mvn install
       - checkout
 #       - restore_cache:
 #           key: cache
