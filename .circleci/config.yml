@@ -18,9 +18,9 @@ jobs:
       - run:
           name: APT Update
           command: |
-            sudo add-apt-repository ppa:webupd8team/java
-            sudo apt update
-            sudo apt install oracle-java8-installer
+            #sudo add-apt-repository ppa:webupd8team/java
+            #sudo apt update
+            #sudo apt install oracle-java8-installer
             mvn -v
             #mvn dependency:go-offline
 #       - run: mvn clean install dependency:resolve dependency:resolve-plugins dependency:go-offline -Pintegration-lite-first
