@@ -25,11 +25,12 @@ jobs:
             #java -Xmx32m -version
             #javac -J-Xmx32m -version
             #mvn dependency:go-offline
+            mvn clean install
 #       - run: mvn clean install dependency:resolve dependency:resolve-plugins dependency:go-offline -Pintegration-lite-first
 #       - run: mvn clean install dependency:resolve dependency:resolve-plugins dependency:go-offline -Pdefault-first,default-second
       - run: |
           #echo "MAVEN_OPTS='-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit'" > ~/.mavenrc
-          mvn clean install
+          #mvn clean install
           mvn install -Pdefault-first,default-second -Dgib.enabled=true
       #- run: mvn -B install -Pdefault-first -Dgib.enabled=true      
       - save_cache:
