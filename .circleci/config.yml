@@ -10,7 +10,7 @@ jobs:
 #       - image: circleci/openjdk:11-jdk
     environment:
       MAVEN_OPTS: "-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit"
-      _JAVA_OPTIONS: "-Xmx3g -XX:MaxPermSize=256m XX:+UseLoopPredicate"
+      _JAVA_OPTIONS: "-Xmx3g -XX:MaxPermSize=256m"
     steps:
       - checkout
 #       - restore_cache:
@@ -24,7 +24,9 @@ jobs:
             mvn -v
             #mvn dependency:go-offline
 #       - run: mvn clean install dependency:resolve dependency:resolve-plugins dependency:go-offline -Pintegration-lite-first
-      - run: mvn clean install dependency:resolve dependency:resolve-plugins dependency:go-offline -Pdefault-first
+      - run: |
+          SET JAVA_OPTS='-Xmx1024m' XX:+UseLoopPredicate
+          mvn clean install dependency:resolve dependency:resolve-plugins dependency:go-offline -Pdefault-first
       - run: mvn -B install -Pdefault-first -Dgib.enabled=true      
       - save_cache:
           key: cache
