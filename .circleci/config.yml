@@ -3,7 +3,8 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: maven:3-jdk-8
+      #- image: maven:3-jdk-8
+      - image: openjdk:8-oracle
     resource_class: large
     environment:
       MAVEN_OPTS: "-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit"
