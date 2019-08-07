@@ -4,12 +4,12 @@ jobs:
   build:
     working_directory: ~/eugenp/tutorials
     machine:
-      image: ubuntu-1604:201903-01
-#     resource_class: large
-#     docker:
-#       - image: circleci/openjdk:11-jdk
+#       image: ubuntu-1604:201903-01
+    resource_class: large
+    docker:
+      - image: circleci/openjdk:11-jdk
     environment:
-      MAVEN_OPTS: "-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit"
+      MAVEN_OPTS: "-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit -XX:-UseLoopPredicate"
       _JAVA_OPTIONS: "-Xmx3g -XX:MaxPermSize=256m"
     steps:
       - checkout
@@ -24,7 +24,7 @@ jobs:
             mvn -v
             #mvn dependency:go-offline
 #       - run: mvn clean install dependency:resolve dependency:resolve-plugins dependency:go-offline -Pintegration-lite-first
-      - run: mvn clean install dependency:resolve dependency:resolve-plugins dependency:go-offline -Pdefault-first -XX:-UseLoopPredicate
+      - run: mvn clean install dependency:resolve dependency:resolve-plugins dependency:go-offline -Pdefault-first
       - run: mvn -B install -Pdefault-first -Dgib.enabled=true      
       - save_cache:
           key: cache
