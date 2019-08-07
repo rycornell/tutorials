@@ -4,7 +4,8 @@ jobs:
   build:
 #     working_directory: ~/project/eugenp/tutorials
     docker:
-      - image: circleci/openjdk:8-jdk
+#       - image: circleci/openjdk:8-jdk
+      - image: maven:3-jdk-8
     environment:
       MAVEN_OPTS: "-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit"
     steps:
