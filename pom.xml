@@ -433,7 +433,7 @@
                 <module>google-web-toolkit</module>
                 <!-- <module>gradle</module> --> <!-- Not a maven project -->
                 <!-- <module>grails</module> --> <!-- Not a maven project -->
-                <!-- <module>graphql/graphql-java</module> -->
+                <module>graphql/graphql-java</module>
                 <module>grpc</module>
                 <module>gson</module>
                 <module>guava</module>
@@ -1128,7 +1128,7 @@
 				<module>google-web-toolkit</module>
 				<!-- <module>gradle</module> --> <!-- Not a maven project -->
 				<!-- <module>grails</module> --> <!-- Not a maven project -->
-				<!-- <module>graphql/graphql-java</module> -->
+				<module>graphql/graphql-java</module>
 				<module>grpc</module>
 				<module>gson</module>
 				<module>guava</module>
