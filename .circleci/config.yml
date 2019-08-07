@@ -24,7 +24,7 @@ jobs:
             mvn -v
             #mvn dependency:go-offline
 #       - run: mvn clean install dependency:resolve dependency:resolve-plugins dependency:go-offline -Pintegration-lite-first
-      - run: mvn clean install dependency:resolve dependency:resolve-plugins dependency:go-offline -Pdefault-first
+      - run: mvn clean install dependency:resolve dependency:resolve-plugins dependency:go-offline -Pdefault-first,default-second
       - run: mvn -B install -Pdefault-first -Dgib.enabled=true      
       - save_cache:
           key: cache
