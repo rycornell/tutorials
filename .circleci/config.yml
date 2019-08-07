@@ -5,11 +5,11 @@ jobs:
     working_directory: ~/project/eugenp/tutorials
     machine:
 #       image: ubuntu-1604:201903-01
-    resource_class: large
+#     resource_class: large
     docker:
-      - image: circleci/openjdk:8-jdk-stretch
+      - image: circleci/openjdk:8-jdk
     environment:
-      #MAVEN_OPTS: "-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit"
+      MAVEN_OPTS: "-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit"
       #_JAVA_OPTIONS: "-Xmx3g -XX:MaxPermSize=256m"
     steps:
       - checkout
@@ -21,14 +21,14 @@ jobs:
             #sudo add-apt-repository ppa:webupd8team/java
             #sudo apt update
             #sudo apt install oracle-java8-installer
-            mvn -v
-            java -Xmx32m -version
-            javac -J-Xmx32m -version
+            #mvn -v
+            #java -Xmx32m -version
+            #javac -J-Xmx32m -version
             #mvn dependency:go-offline
 #       - run: mvn clean install dependency:resolve dependency:resolve-plugins dependency:go-offline -Pintegration-lite-first
 #       - run: mvn clean install dependency:resolve dependency:resolve-plugins dependency:go-offline -Pdefault-first,default-second
       - run: |
-          echo "MAVEN_OPTS='-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit'" > ~/.mavenrc
+          #echo "MAVEN_OPTS='-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit'" > ~/.mavenrc
           mvn clean install
           mvn install -Pdefault-first,default-second -Dgib.enabled=true
       #- run: mvn -B install -Pdefault-first -Dgib.enabled=true      
