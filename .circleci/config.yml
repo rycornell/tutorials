@@ -2,7 +2,6 @@ version: 2.1
 
 jobs:
   build:
-#     working_directory: ~/project/eugenp/tutorials
     docker:
       - image: maven:3-jdk-8
     resource_class: large
@@ -10,8 +9,8 @@ jobs:
       MAVEN_OPTS: "-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit"
     steps:
       - checkout
-#       - restore_cache:
-#           key: cache
+      - restore_cache:
+          key: cache
       - run: mvn clean install
       - run: mvn install -Pdefault-first,default-second -Dgib.enabled=true
       - save_cache:
