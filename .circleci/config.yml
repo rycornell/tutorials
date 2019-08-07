@@ -3,9 +3,11 @@ version: 2.1
 jobs:
   build:
     working_directory: ~/eugenp/tutorials
-    resource_class: large
-    docker:
-      - image: circleci/openjdk:11-jdk
+    machine:
+      image: ubuntu-1604:201903-01
+#     resource_class: large
+#     docker:
+#       - image: circleci/openjdk:11-jdk
     environment:
       MAVEN_OPTS: "-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit"
       _JAVA_OPTIONS: "-Xmx3g -XX:MaxPermSize=256m"
@@ -16,8 +18,8 @@ jobs:
       - run:
           name: APT Update
           command: |
-            #sudo apt update
-            #sudo apt install oracle-java8-installer
+            sudo apt update
+            sudo apt install oracle-java8-installer
             mvn -v
             #mvn dependency:go-offline
 #       - run: mvn clean install dependency:resolve dependency:resolve-plugins dependency:go-offline -Pintegration-lite-first
