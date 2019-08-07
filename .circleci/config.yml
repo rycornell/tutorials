@@ -2,7 +2,7 @@ version: 2.1
 
 jobs:
   build:
-#     working_directory: ~/project/eugenp/tutorials
+    working_directory: ~/project/eugenp/tutorials
     docker:
       - image: circleci/openjdk:8-jdk
     environment:
