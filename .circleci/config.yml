@@ -4,7 +4,7 @@ jobs:
   build:
     docker:
       #- image: maven:3-jdk-8
-      - image: circleci/openjdk:12-jdk-oracle
+      - image: openjdk:8-sdk
     resource_class: large
     environment:
       MAVEN_OPTS: "-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit"
@@ -12,6 +12,7 @@ jobs:
       - checkout
       - restore_cache:
           key: cache
+      - run: sudo apt-get install openjfx
       - run: mvn clean install
       - run: mvn install -Pdefault-first,default-second -Dgib.enabled=true
       - save_cache:
