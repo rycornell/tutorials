@@ -4,7 +4,7 @@ jobs:
   build:
     docker:
       #- image: maven:3-jdk-8
-      - image: openjdk:12-jdk-oracle
+      - image: circleci/openjdk:12-jdk-oracle
     resource_class: large
     environment:
       MAVEN_OPTS: "-Xmx2048M -Xss128M -XX:+CMSClassUnloadingEnabled -XX:+UseG1GC -XX:-UseGCOverheadLimit"
