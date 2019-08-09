@@ -2,9 +2,10 @@ version: 2.1
 
 jobs:
   build:
-    machine:
-      image: ubuntu-1604:201903-01
-    # docker:
+#     machine:
+#       image: ubuntu-1604:201903-01
+    docker:
+      - circleci/openjdk:12-jdk-oracle
       #- image: maven:3-jdk-8
       # - image: openjdk:8-jdk
     # resource_class: large
